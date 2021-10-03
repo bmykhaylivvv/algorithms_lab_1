@@ -124,10 +124,10 @@ def set_of_three_array_test():
 
 
 def main():
-    random_array_test() +
-    increasing_array_test() +
-    decreasing_array_test() +
-    set_of_three_array_test() +
+    random_array_test()
+    increasing_array_test()
+    decreasing_array_test()
+    set_of_three_array_test()
 
 
 if __name__ == "__main__":

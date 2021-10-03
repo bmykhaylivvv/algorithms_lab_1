@@ -33,7 +33,6 @@ def data_avg(alg_name, dataset):
             int(sum(current_size_comprarisons)/len(current_size_comprarisons)))
 
     return (alg_random_avg_time, alg_random_avg_comparisons)
-    
 
 
 def visualisation(filename, type, expetiment_title, save_to):
@@ -47,7 +46,6 @@ def visualisation(filename, type, expetiment_title, save_to):
     insertion = data_avg('INSERTION', dataset)
     selection = data_avg('SELECTION', dataset)
     shell = data_avg('SHELL', dataset)
-
 
     plt.plot(size, merge[type], label='Merge sort')
     plt.plot(size, insertion[type], label='Insertion sort')
@@ -67,7 +65,10 @@ def visualisation(filename, type, expetiment_title, save_to):
 
     return
 
+
 if __name__ == "__main__":
+    print('Visualisation part')
+    # Uncomment certain lines if you want to run testing
     # visualisation('random_arrays.csv', 0, 'EXPERIMENT 1\nRandom array', 'exp_1_random_time')
     # visualisation('random_arrays.csv', 1, 'EXPERIMENT 1\nRandom array', 'exp_1_random_comparisons')
     # visualisation('increasing_arrays.csv', 0, 'EXPERIMENT 2\nIncreasing array', 'exp_2_increasing_time')
@@ -76,13 +77,3 @@ if __name__ == "__main__":
     # visualisation('decreasing_arrays.csv', 1, 'EXPERIMENT 3\nDecreasing array', 'exp_3_decreasing_comparisons')
     # visualisation('set_of_three.csv', 0, 'EXPERIMENT 4\n{1, 2, 3} array', 'exp_4_set_of_three_time')
     # visualisation('set_of_three.csv', 1, 'EXPERIMENT 4\n{1, 2, 3} array', 'exp_4_set_of_three_comparisons')
-
-
-
-
-
-
-
-
-
-
