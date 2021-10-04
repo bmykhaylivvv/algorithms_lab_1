@@ -36,6 +36,7 @@ def random_array_test():
         for _ in range(5):
             size = 2**7
             while size <= 2**15:
+                print(size)
 
                 print('Creating array')
                 array = create_array(size)
@@ -59,6 +60,8 @@ def increasing_array_test():
         size = 2**7
 
         while size <= 2**15:
+            print(size)
+
 
             print('Creating array')
             array = create_array(size, increasing=True)
@@ -82,6 +85,8 @@ def decreasing_array_test():
         size = 2**7
 
         while size <= 2**15:
+            print(size)
+
 
             print('Creating array')
             array = create_array(size, decreasing=True)
@@ -106,6 +111,7 @@ def set_of_three_array_test():
         for _ in range(3):
             size = 2**7
             while size <= 2**15:
+                print(size)
 
                 print('Creating array')
                 array = create_array(size)
@@ -124,10 +130,14 @@ def set_of_three_array_test():
 
 
 def main():
-    random_array_test()
-    increasing_array_test()
-    decreasing_array_test()
-    set_of_three_array_test()
+    # print('--- TEST 1 is running ---')
+    # random_array_test()
+    # print('--- TEST 2 is running ---')
+    # increasing_array_test()
+    # print('--- TEST 3 is running ---')
+    # decreasing_array_test()
+    # print('--- TEST 4 is running ---')
+    # set_of_three_array_test()
 
 
 if __name__ == "__main__":

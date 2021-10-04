@@ -5,6 +5,7 @@ def shell_sort(array):
         for i in range(gap, len(array)):
             current = array[i]
             j = i
+            comparisons += 1
             while j >= gap and array[j - gap] > current:
                 comparisons += 1
                 array[j] = array[j - gap]

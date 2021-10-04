@@ -4,6 +4,9 @@ def insertion_sort(array):
         key = array[i]
 
         j = i - 1
+        if not (j >= 0) and not (key < array[j]):
+            comparisons += 1
+            
         while j >= 0 and key < array[j]:
             comparisons += 1
             # move all element larger than key one position right

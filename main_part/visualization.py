@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import interp1d
 size = [128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768]
+# size = [i for i in range(6, 14)]
 
 
 def read_data(filename):
@@ -47,17 +48,46 @@ def visualisation(filename, type, expetiment_title, save_to):
     selection = data_avg('SELECTION', dataset)
     shell = data_avg('SHELL', dataset)
 
-    plt.plot(size, merge[type], label='Merge sort')
-    plt.plot(size, insertion[type], label='Insertion sort')
-    plt.plot(size, selection[type], label='Selection sort')
-    plt.plot(size, shell[type], label='Shell sort')
+    # SMOOTH LINES
+    from scipy.interpolate import make_interp_spline
+    sizenew = np.linspace(np.array(size).min(), np.array(size).max(), 200) 
+    spl = make_interp_spline(size, merge[type], k=3)
+    merge_smooth = spl(sizenew)
+    plt.yscale("log")
+    plt.plot(sizenew, merge_smooth, label='Merge sort', color="b")
+
+    sizenew = np.linspace(np.array(size).min(), np.array(size).max(), 200) 
+    spl = make_interp_spline(size, insertion[type], k=3)
+    merge_smooth = spl(sizenew)
+    plt.yscale("log")
+    plt.plot(sizenew, merge_smooth, label='Insertion sort', color="r")
+
+    sizenew = np.linspace(np.array(size).min(), np.array(size).max(), 200) 
+    spl = make_interp_spline(size, selection[type], k=3)
+    merge_smooth = spl(sizenew)
+    plt.yscale("log")
+    plt.plot(sizenew, merge_smooth, label='Selection sort', color="y")
+
+    sizenew = np.linspace(np.array(size).min(), np.array(size).max(), 200) 
+    spl = make_interp_spline(size, shell[type], k=3)
+    merge_smooth = spl(sizenew)
+    plt.yscale("log")
+    plt.plot(sizenew, merge_smooth, label='Shell sort', color="c")
+
+    # ORDINARY LINES
+    # plt.plot(size, merge[type], label='Merge sort')
+    # plt.plot(size, insertion[type], label='Insertion sort')
+    # plt.plot(size, selection[type], label='Selection sort')
+    # plt.plot(size, shell[type], label='Shell sort')
+
+
 
     if type == 0:
-        plt.xlabel('Execution time')
+        plt.ylabel('Execution time')
     else:
-        plt.xlabel('No. of comparisons')
+        plt.ylabel('No. of comparisons')
 
-    plt.ylabel('Array size')
+    plt.xlabel('Array size')
     plt.title(expetiment_title)
     plt.legend()
     # plt.show()
